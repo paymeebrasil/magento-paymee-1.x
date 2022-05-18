@@ -81,6 +81,8 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
 
                 Mage::helper('juniormaia_paymee')->logs($_response);
 
+                $_lastOrder->getPayment()->setAdditionalInformation('paymee_response', $response["response_payload"]);
+
                 $saleCode       = $_response['saleCode'];
                 $uuid           = $_response['uuid'];
                 $referenceCode  = $_response['referenceCode'];
@@ -88,8 +90,10 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
                 if ($paymentCode == 'juniormaia_paymee_pix') {
                     $qrCode = $_response['instructions']['qrCode']['url'];
                     $plain  = $_response['instructions']['qrCode']['plain'];
+
                     $_lastOrder->getPayment()->setAdditionalInformation('paymee_pix_qrcode', $qrCode);
                     $_lastOrder->getPayment()->setAdditionalInformation('paymee_pix_plain', $plain);
+                    $_lastOrder->getPayment()->save();
                 }
 
                 $_lastOrder->setPaymeeUuid($uuid);
