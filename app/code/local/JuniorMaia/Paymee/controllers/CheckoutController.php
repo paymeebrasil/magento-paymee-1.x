@@ -33,6 +33,9 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
             $paymentMethod = 'PIX';
         }
 
+        $mobile             = preg_replace('/[^\dxX]/', '', $_lastOrder->getBillingAddress()->getTelephone());
+        $paymee_document    = preg_replace('/[^\dxX]/', '', $paymee_document);
+
         $data = array(
             "currency"          => "BRL",
             "amount"            => (float)$amount,
@@ -51,7 +54,7 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
                 ),
                 "phone" => array(
                     "type"      => "MOBILE",
-                    "number"    => $_lastOrder->getBillingAddress()->getTelephone(),
+                    "number"    => $mobile,
                 ),
             )
         );
