@@ -129,7 +129,7 @@
                 <payment_action>sale</payment_action>
                 <order_status>pending</order_status>
                 <allowspecific>0</allowspecific>
-                <sort_order>1</sort_order>
+                <sort_order>2</sort_order>
             </juniormaia_paymee_transfer>
             <juniormaia_paymee_pix>
                 <model>juniormaia_paymee/pix</model>
@@ -138,7 +138,7 @@
                 <order_status>pending</order_status>
                 <payment_action>order</payment_action>
                 <allowspecific>0</allowspecific>
-                <sort_order>2</sort_order>
+                <sort_order>1</sort_order>
             </juniormaia_paymee_pix>
             <juniormaia_paymee_boleto>
                 <model>juniormaia_paymee/boleto</model>
