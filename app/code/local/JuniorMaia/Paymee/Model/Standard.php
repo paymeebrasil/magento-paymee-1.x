@@ -54,8 +54,6 @@ class JuniorMaia_Paymee_Model_Standard extends Mage_Payment_Model_Method_Abstrac
         $payment            = $this->getInfoInstance();
         $order              = $payment->getOrder();
 
-        Mage::log('Chamou initialize admin');
-
         //Admin order
         if(empty($order->getRemoteIp())){
             $_orderData         = $order->getData();
