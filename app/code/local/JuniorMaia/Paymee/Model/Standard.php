@@ -91,8 +91,10 @@ class JuniorMaia_Paymee_Model_Standard extends Mage_Payment_Model_Method_Abstrac
                         "type"      => "MOBILE",
                         "number"    => $mobile,
                     ),
-                    "branch"    => $agencia,
-                    "account"   => $conta,
+                    "bankDetails" => array(
+                        "branch"    => $agencia,
+                        "account"   => $conta,
+                    )
                 )
             );
 
